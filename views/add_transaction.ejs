@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Transaction</title>
+</head>
+<body>
+    <h1>Add Transaction</h1>
+    <form action="/transactions" method="POST">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+
+        <label for="transaction_id">Transaction ID:</label>
+        <input type="text" id="transaction_id" name="transaction_id" required>
+
+        <label for="customer_id">Customer ID:</label>
+        <input type="text" id="customer_id" name="customer_id" required>
+
+        <label for="transaction_date">Transaction Date:</label>
+        <input type="date" id="transaction_date" name="transaction_date" required>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" required>
+
+        <label for="payment_method">Payment Method:</label>
+        <input type="text" id="payment_method" name="payment_method" required>
+
+        <label for="currency">Currency:</label>
+        <input type="text" id="currency" name="currency" required>
+
+        <button type="submit">Add Transaction</button>
+    </form>
+    <a href="/user">Back to User Dashboard</a>
+</body>
+</html>

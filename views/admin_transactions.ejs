@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - View Transactions</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>All Transactions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Transaction ID</th>
+                <th>Customer ID</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Payment Method</th>
+                <th>Currency</th>
+                <th>User</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% transactions.forEach(transaction => { %>
+                <tr>
+                    <td><%= transaction.id %></td>
+                    <td><%= transaction.transaction_id %></td>
+                    <td><%= transaction.customer_id %></td>
+                    <td><%= transaction.transaction_date %></td>
+                    <td><%= transaction.amount %></td>
+                    <td><%= transaction.status %></td>
+                    <td><%= transaction.payment_method %></td>
+                    <td><%= transaction.currency %></td>
+                    <td><%= transaction.user_name %></td>
+                    <td>
+                        <a href="/admin/transactions/<%= transaction.id %>">View</a>
+                        <form action="/transactions/<%= transaction.id %>?_method=PUT" method="POST">
+                            <select name="status">
+                                <option value="Pending" <%= transaction.status === 'Pending' ? 'selected' : '' %>>Pending</option>
+                                <option value="Approved" <%= transaction.status === 'Approved' ? 'selected' : '' %>>Approved</option>
+                                <option value="Rejected" <%= transaction.status === 'Rejected' ? 'selected' : '' %>>Rejected</option>
+                            </select>
+                            <button type="submit">Update</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <a href="/admin/dashboard">Back to Dashboard</a>
+</body>
+</html>

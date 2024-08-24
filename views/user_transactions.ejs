@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approved Transactions</title>
+</head>
+<body>
+    <h1>Your Approved Transactions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Transaction ID</th>
+                <th>Customer ID</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Payment Method</th>
+                <th>Currency</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% transactions.forEach(transaction => { %>
+                <tr>
+                    <td><%= transaction.id %></td>
+                    <td><%= transaction.transaction_id %></td>
+                    <td><%= transaction.customer_id %></td>
+                    <td><%= transaction.transaction_date.toISOString().substring(0, 10) %></td>
+                    <td><%= transaction.amount %></td>
+                    <td><%= transaction.payment_method %></td>
+                    <td><%= transaction.currency %></td>
+                    <td>
+                        <a href="/user/transactions/<%= transaction.id %>">View Details</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <a href="/user">Back to User Dashboard</a>
+</body>
+</html>

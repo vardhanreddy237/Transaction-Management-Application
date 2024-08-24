@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Detail</title>
+</head>
+<body>
+    <h1>Transaction Details</h1>
+    <p>ID: <%= transaction.id %></p>
+    <p>Transaction ID: <%= transaction.transaction_id %></p>
+    <p>Customer ID: <%= transaction.customer_id %></p>
+    <p>Transaction Date: <%= transaction.transaction_date.toISOString().substring(0, 10) %></p>
+    <p>Amount: <%= transaction.amount %></p>
+    <p>Status: <%= transaction.status %></p>
+    <p>Payment Method: <%= transaction.payment_method %></p>
+    <p>Currency: <%= transaction.currency %></p>
+
+    <% if (role === 'admin') { %>
+        <a href="/admin/dashboard">Back to Admin Dashboard</a>
+    <% } else { %>
+        <a href="/user">Back to User Dashboard</a>
+    <% } %>
+</body>
+</html>
